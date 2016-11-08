@@ -1,3 +1,3 @@
 # Personal
 
-This is a repository for personal projects and such
+This is a repository for personal projects.
