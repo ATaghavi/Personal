@@ -380,6 +380,7 @@ Email: philipvr@gmail.com}
 \section{Introduction}
 Online gaming is as popular as it has ever been, and only continues to grow. 
 With the advent of eSports, we are seeing competitive video gaming turn into a legitimate industry. Video games are played for fun, but they are also played for sport and, in some cases, as a career. This changes security issues and cheating in online gaming from an annoyance to a serious issue. 
+Cheating in online gaming that results in a change in the outcome of the game can have financial implications and can be a serious crime.
 	
 One such eSport is the Super Smash Bros franchise, from Nintendo.
 This is considered by many to be the first eSport, as the competitive Super Smash Bros scene emerged before the game was playable online.
@@ -388,12 +389,18 @@ In particular, we are concerned with Super Smash Bros Melee, which we will refer
 The competitive community for SSBM began with groups of people meeting in person and holding tournaments.
 However, in recent years, ways of playing the game online have emerged.
 Dolphin is a Gamecube emulator for Windows, which provides a system called NetPlay for playing certain Gamecube games online.
+Players can meet in online, on sites such as Anther's Ladder.
+These sites provide a platform for players to meet eachother and coordinate games.
+Tournaments are also organized via websites such as these, and many of these such tournaments are played for prize money. 
+Thus, security implications are very serious for this game.
 
 We wish to explore the security issues with NetPlay for Dolphin, in particular how they pertain to SSBM. 
 Our analysis will be threefold: (1) Cheating at SSBM through NetPlay for Dolphin, (2) Malicious activity via the connection provided by NetPlay, and (3) possible solutions for the issues we find.
 
 \section{Proposed Technique}
 To explore the methods of cheating at SSBM via NetPlay, we will first use a network traffic tool such as Wireshark to capture traffic during an SSBM session. This will allow us to analyze the way that data is sent back and forth to establish the game, and enable us to spoof input from one user to cheat. 
+
+Then, we will conduct experiments to attempt to alter the game and affect the game via a third party. We will use packet spoofing to impersonate one of the players.
 	
 Next, we will try various known methods of attack using the NetPlay connection, such as buffer overflow. We will note the results and how NetPlay can be used to facilitate malicious behavior.
 	
