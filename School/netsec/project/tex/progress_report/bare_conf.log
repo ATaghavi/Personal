@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.13)  10 NOV 2016 20:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.13)  10 NOV 2016 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -282,11 +282,11 @@ Overfull \hbox (4.0748pt too wide) in paragraph at lines 439--440
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 450.
+(Font)              <7> on input line 452.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 450.
+(Font)              <5> on input line 452.
 
-Underfull \hbox (badness 2680) in paragraph at lines 450--451
+Underfull \hbox (badness 2680) in paragraph at lines 452--453
 []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ip:src \OT1/cmr/m/n/10 == \OML/cmm/m/it/10
  IP[]\OT1/cmr/m/n/10 &&\OML/cmm/m/it/10 ip:dst \OT1/cmr/m/n/10 == \OML/cmm/m/it
 /10 IP[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 jj\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i
@@ -296,13 +296,13 @@ p:src \OT1/cmr/m/n/10 ==
 <Figures/Packet.png, id=11, 147.55125pt x 63.23625pt>
 File: Figures/Packet.png Graphic file (type png)
  <use Figures/Packet.png>
-Package pdftex.def Info: Figures/Packet.png used on input line 471.
+Package pdftex.def Info: Figures/Packet.png used on input line 473.
 (pdftex.def)             Requested size: 113.81102pt x 48.77696pt.
 
 (/usr/local/texlive/2015basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (18.00275pt too wide) in paragraph at lines 489--490
+Overfull \hbox (18.00275pt too wide) in paragraph at lines 491--492
 [][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -312,14 +312,14 @@ Overfull \hbox (18.00275pt too wide) in paragraph at lines 489--490
 File: Figures/Sequence1.png Graphic file (type png)
 
 <use Figures/Sequence1.png>
-Package pdftex.def Info: Figures/Sequence1.png used on input line 503.
+Package pdftex.def Info: Figures/Sequence1.png used on input line 505.
 (pdftex.def)             Requested size: 227.62204pt x 188.73094pt.
 
 <Figures/Sequence2.png, id=23, 848.16875pt x 541.02126pt>
 File: Figures/Sequence2.png Graphic file (type png)
 
 <use Figures/Sequence2.png>
-Package pdftex.def Info: Figures/Sequence2.png used on input line 508.
+Package pdftex.def Info: Figures/Sequence2.png used on input line 510.
 (pdftex.def)             Requested size: 227.62204pt x 145.19437pt.
  (./bare_conf.bbl)
 
@@ -338,7 +338,7 @@ Before submitting the final camera ready copy, remember to:
 Here is how much of TeX's memory you used:
  3815 strings out of 494501
  60273 string characters out of 6167030
- 147581 words of memory out of 5000000
+ 147845 words of memory out of 5000000
  7071 multiletter control sequences out of 15000+600000
  35250 words of font info for 64 fonts, out of 8000000 for 9000
  322 hyphenation exceptions out of 8191
@@ -353,7 +353,7 @@ times/utmb8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times
 /utmbi8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times/utm
 r8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on bare_conf.pdf (3 pages, 176012 bytes).
+Output written on bare_conf.pdf (3 pages, 176243 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
