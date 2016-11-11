@@ -109,7 +109,7 @@
 % The documentation is contained in the cite.sty file itself.
 
 
-
+\usepackage{graphicx}
 
 
 
@@ -287,7 +287,7 @@
 % http://www.ctan.org/pkg/dblfloatfix
 
 
-
+\usepackage{listings}
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
@@ -427,12 +427,87 @@ For both of these connection types, the flow of communication is the same. It co
 \item The host decides when to start the game.
 \item Both (or all) sides communicate their controller input for the game to take place.
 \end{enumerate}
-\vspace{0.5cm}
+\vspace{0.cm}
 
 An example sequence diagram is provided below:
+\begin{center}
+\includegraphics[width=9cm]{Figures/Basic_Sequence}
+\end{center}
 \vspace{0.5cm}
 
+\section{Traffic Monitoring}
+Our first task was to monitor traffic during a game of SSBM via NetPlay. 
+The goal of this is to capture and observe network traffic to analyze security vulnerabilities. 
+From there we will design and explore possible exploits.
+Our experiment here is simple: Play a game of SSBM between two hosts via NetPlay, and monitor the network traffic during the game.
 
+For monitoring, we used the tool "Wireshark" to capture network traffic. During our capture, we used the following filter:
+
+$ ( ip.src == IP_1 \&\& ip.dst == IP_2 ) || (ip.src == IP_2 \&\& ip.dst == IP_1) \&\& udp) $
+
+\vspace{0.3cm}
+This filter allowed us to only look at traffic that is to and from the two IP addresses that we used, and only UDP traffic of that.
+Initially the traffic was numerous and overwhelming.
+We were able to do shorter captures of different stages of the game to narrow down the traffic and more closely associate it with different actions in the game.
+For this, we broke the game down into two stages:
+\begin{enumerate}  
+\item Initial handshake and pre-game
+\item During game communication
+\end{enumerate}
+\vspace{0.5cm}
+
+Some of the initial handshake data is somewhat indecipherable to us. 
+However, the pre-game client allows users to "chat" with eachother, and this is easily decipherable. 
+An example of such a packet is provided below:
+\vspace{0.5cm}
+
+For the actual game communication, it is our analysis that the games send "controller input" back and forth to establish the game. An example of such a packet is provided below:
+\vspace{0.5cm}
+\begin{center}
+\includegraphics[width=4cm]{Figures/Packet}
+\end{center}
+\vspace{0.5cm}
+
+Each of these UDP packets contains data about a single controller input.
+\section{Experiment 1: Third Party Intervention}
+In this first experiment, we explore a fairly simple exploit of the SSBM game via NetPlay.
+Our goal, in this experiment, is to interfere with the flow of a game via a third party host.
+To achieve this, we use our analysis of the monitored traffic from other games to be able to construct packets that we think will interfere with a game being played by two other hosts. 
+\subsection{Packet Spoofing}
+To achieve this goal, we will need to be able to construct and send out packets programatically.
+Particularly, we will need to construct UDP packets and be able to "spoof" the sender address of such packets.
+By this, we mean that we need to be able to indicate that a packet is coming from another host.
+We have chosen to implement a simple packet spoofer in Python, and use this to perform the attack.
+We use the \textbf{scapy} Python library.
+A small sample code snippet is provided below:
+\vspace{0.3cm}
+\begin{lstlisting}[language=Python]
+spoofed_packet = IP(src=src_IP, dst=dst_IP) / 
+UDP(sport=src_port, dport=dst_port) / 
+payload
+send(spoofed_packet)
+\end{lstlisting}
+\vspace{0.3cm}
+The \textbf{scapy} library makes the construction and sending of spoofed packets very simple.
+
+\subsection{Attack Overview}
+For this experiment, we will first begin a game of SSBM via NetPlay between two hosts.
+We will then use a third party computer to spoof packets to interfere with the game.
+The third party will spoof packets "pretending" to be one of the hosts (the victim, in this case), and sending facetious and malicious data.
+An example sequence diagram is provided below:
+\begin{center}
+\includegraphics[width=8cm]{Figures/Sequence1}
+\end{center}
+\vspace{0.5cm}
+This experiment is performed on the two types of game connection, namely:
+\vspace{0.5cm}
+\begin{enumerate}  
+\item Direct Connection
+\item Traversal Server
+\end{enumerate}
+\vspace{0.5cm}
+
+The different between the two is that for the direct connection, we will be spoofing packets to the other host. In the case of the traversal server, we will be spoofing messages to the traversal server.
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
