@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.13)  10 NOV 2016 20:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.9.13)  10 NOV 2016 20:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -269,42 +269,59 @@ Overfull \hbox (4.0748pt too wide) in paragraph at lines 434--435
 
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 446.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 446.
+<Figures/Sequence_Traversal.png, id=10, 594.22pt x 482.80376pt>
+File: Figures/Sequence_Traversal.png Graphic file (type png)
 
-Underfull \hbox (badness 2680) in paragraph at lines 446--447
+<use Figures/Sequence_Traversal.png>
+Package pdftex.def Info: Figures/Sequence_Traversal.png used on input line 439.
+
+(pdftex.def)             Requested size: 256.0748pt x 208.06569pt.
+
+Overfull \hbox (4.0748pt too wide) in paragraph at lines 439--440
+ [] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 450.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 450.
+
+Underfull \hbox (badness 2680) in paragraph at lines 450--451
 []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ip:src \OT1/cmr/m/n/10 == \OML/cmm/m/it/10
  IP[]\OT1/cmr/m/n/10 &&\OML/cmm/m/it/10 ip:dst \OT1/cmr/m/n/10 == \OML/cmm/m/it
 /10 IP[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 jj\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i
 p:src \OT1/cmr/m/n/10 ==
  []
 
-<Figures/Packet.png, id=10, 147.55125pt x 63.23625pt>
+<Figures/Packet.png, id=11, 147.55125pt x 63.23625pt>
 File: Figures/Packet.png Graphic file (type png)
  <use Figures/Packet.png>
-Package pdftex.def Info: Figures/Packet.png used on input line 467.
+Package pdftex.def Info: Figures/Packet.png used on input line 471.
 (pdftex.def)             Requested size: 113.81102pt x 48.77696pt.
 
 (/usr/local/texlive/2015basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (18.00275pt too wide) in paragraph at lines 485--486
+Overfull \hbox (18.00275pt too wide) in paragraph at lines 489--490
 [][][][][][][][][][][][][][][][][][][] 
  []
 
-<Figures/Sequence1.png, id=12, 440.64626pt x 365.365pt>
+[2 <./Figures/Basic_Sequence.png (PNG copy)> <./Figures/Sequence_Traversal.png 
+(PNG copy)> <./Figures/Packet.png>]
+<Figures/Sequence1.png, id=22, 440.64626pt x 365.365pt>
 File: Figures/Sequence1.png Graphic file (type png)
 
 <use Figures/Sequence1.png>
-Package pdftex.def Info: Figures/Sequence1.png used on input line 499.
+Package pdftex.def Info: Figures/Sequence1.png used on input line 503.
 (pdftex.def)             Requested size: 227.62204pt x 188.73094pt.
 
-Underfull \vbox (badness 7704) has occurred while \output is active []
+<Figures/Sequence2.png, id=23, 848.16875pt x 541.02126pt>
+File: Figures/Sequence2.png Graphic file (type png)
 
- [2 <./Figures/Basic_Sequence.png (PNG copy)> <./Figures/Packet.png>] (./bare_c
-onf.bbl)
+<use Figures/Sequence2.png>
+Package pdftex.def Info: Figures/Sequence2.png used on input line 508.
+(pdftex.def)             Requested size: 227.62204pt x 145.19437pt.
+ (./bare_conf.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -316,31 +333,30 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
-
- <./Figures/Sequence1.png (PNG copy)>] (./bare_conf.aux) ) 
+[3 <./Figures/Sequence1.png (PNG copy)> <./Figures/Sequence2.png (PNG copy)>]
+(./bare_conf.aux) ) 
 Here is how much of TeX's memory you used:
- 3805 strings out of 494501
- 59996 string characters out of 6167030
- 147405 words of memory out of 5000000
- 7063 multiletter control sequences out of 15000+600000
+ 3815 strings out of 494501
+ 60273 string characters out of 6167030
+ 147581 words of memory out of 5000000
+ 7071 multiletter control sequences out of 15000+600000
  35250 words of font info for 64 fonts, out of 8000000 for 9000
  322 hyphenation exceptions out of 8191
  38i,7n,42p,321b,1051s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2
-015basic/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015basic/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015bas
-ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015
-basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
-15basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2015basic/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/201
-5basic/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015bas
-ic/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015basic/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (3 pages, 125873 bytes).
+{/usr/local/texlive/2015basic/texmf-dist/fonts/enc/dvips/bas
+e/8r.enc}</usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/
+times/utmb8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times
+/utmbi8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on bare_conf.pdf (3 pages, 176012 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 54 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

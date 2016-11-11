@@ -429,12 +429,16 @@ For both of these connection types, the flow of communication is the same. It co
 \end{enumerate}
 \vspace{0.cm}
 
-An example sequence diagram is provided below:
+An example sequence diagram for a direct connection is provided below:
 \begin{center}
 \includegraphics[width=9cm]{Figures/Basic_Sequence}
 \end{center}
-\vspace{0.5cm}
-
+\vspace{0.3cm}
+And the equivalent diagram for the traversal server:
+\begin{center}
+\includegraphics[width=9cm]{Figures/Sequence_Traversal}
+\end{center}
+\vspace{0.3cm}
 \section{Traffic Monitoring}
 Our first task was to monitor traffic during a game of SSBM via NetPlay. 
 The goal of this is to capture and observe network traffic to analyze security vulnerabilities. 
@@ -494,9 +498,14 @@ The \textbf{scapy} library makes the construction and sending of spoofed packets
 For this experiment, we will first begin a game of SSBM via NetPlay between two hosts.
 We will then use a third party computer to spoof packets to interfere with the game.
 The third party will spoof packets "pretending" to be one of the hosts (the victim, in this case), and sending facetious and malicious data.
-An example sequence diagram is provided below:
+An example sequence diagram for a direct connection is provided below:
 \begin{center}
 \includegraphics[width=8cm]{Figures/Sequence1}
+\end{center}
+\vspace{0.5cm}
+And the equivalent diagram for a traversal server is:
+\begin{center}
+\includegraphics[width=8cm]{Figures/Sequence2}
 \end{center}
 \vspace{0.5cm}
 This experiment is performed on the two types of game connection, namely:
