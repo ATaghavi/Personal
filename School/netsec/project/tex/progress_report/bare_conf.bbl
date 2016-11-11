@@ -35,6 +35,11 @@ J.~J. Yan and H.~Choi, ``Security issues in online games,'' \emph{The
   \url{http://dx.doi.org/10.1108/02640470210424455}
 \BIBentrySTDinterwordspacing
 
+\bibitem{mcgraw09}
+G.~McGraw and M.~Chow, ``Guest editors' introduction: Securing online games:
+  Safeguarding the future of software security,'' \emph{IEEE Security \&
+  Privacy}, vol.~7, no.~3, pp. 11--12, 2009.
+
 \bibitem{chen04}
 Y.-C. Chen, P.~Chen, R.~Song, and L.~Korba, ``Online gaming crime and security
   issue-cases and countermeasures from taiwan,'' \emph{Proceedings of the 2nd
@@ -63,5 +68,11 @@ K.-T. Chen and L.-W. Hong, ``User identification based on game-play activity
   patterns,'' in \emph{NetGames`07: Proceedings of the 6th ACM SIGCOMM workshop
   on Network and System Support for Games}.\hskip 1em plus 0.5em minus
   0.4em\relax ACM, 2007, pp. 7--12.
+
+\bibitem{github-dolphin}
+\BIBentryALTinterwordspacing
+``Dolphin emulator,'' Oct 2016. [Online]. Available:
+  \url{https://github.com/dolphin-emu/dolphin}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
