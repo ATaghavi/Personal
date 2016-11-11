@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex bare_conf"] 1478837916 "bare_conf.aux" "bare_conf.bbl" "bare_conf" 1478837916
+["bibtex bare_conf"] 1478837916 "bare_conf.aux" "bare_conf.bbl" "bare_conf" 1478838657
   "/usr/local/texlive/2015/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1222816716 59506 016987d9be15acf51cdd7252d40ecec2 ""
-  "bare_conf.aux" 1478837916 1290 da9a68471dc2ec21ab517e2a61245ee5 ""
+  "bare_conf.aux" 1478838657 1290 da9a68471dc2ec21ab517e2a61245ee5 ""
   "bare_conf.bcf" 0 -1 0 ""
   "bib.bib" 1478837914 3103 8559b08c23eb3cd403cf910c47e3ebf0 ""
   (generated)
   "bare_conf.blg"
   "bare_conf.bbl"
-["pdflatex"] 1478837916 "bare_conf.tex" "bare_conf.pdf" "bare_conf" 1478837916
+["pdflatex"] 1478838657 "bare_conf.tex" "bare_conf.pdf" "bare_conf" 1478838657
   "./Figures/Basic_Sequence.png" 1478833811 13114 8adf4a7f0d2ba0e3d0bc7d1e07658f34 ""
   "./Figures/Packet.png" 1478833811 9397 c40abd24f087c1a5ed1af5aaa7eec08b ""
   "./Figures/Sequence1.png" 1478833811 15484 0a398a0e4a387e62ea7721951c688f43 ""
@@ -72,9 +72,9 @@
   "Figures/Sequence1.png" 1478833811 15484 0a398a0e4a387e62ea7721951c688f43 ""
   "Figures/Sequence2.png" 1478833811 28561 806a3544ed471f1905488ea7f06425cd ""
   "Figures/Sequence_Traversal.png" 1478833811 21780 71fd6b77f734eb8f51e9636f858828e2 ""
-  "bare_conf.aux" 1478837916 1290 da9a68471dc2ec21ab517e2a61245ee5 ""
+  "bare_conf.aux" 1478838657 1290 da9a68471dc2ec21ab517e2a61245ee5 ""
   "bare_conf.bbl" 1478837916 3035 7e1b601b1512aeb75043b52ac1db6de4 "bibtex bare_conf"
-  "bare_conf.tex" 1478837785 28931 6c73ea43b2a7e7be1a72f33311f451b0 ""
+  "bare_conf.tex" 1478838657 28953 1df4fcf6b547ab8b218dc3e3a12decfd ""
   (generated)
   "bare_conf.pdf"
   "bare_conf.log"

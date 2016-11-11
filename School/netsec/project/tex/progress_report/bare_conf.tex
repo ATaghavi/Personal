@@ -422,7 +422,7 @@ By using a time series based user modeling approach in \cite{oh12} compromised a
 \section{NetPlay Overview}
 NetPlay is an online gaming platform that is provided by the Dolphin emulator. It provides a way for players using the emulator to play games against each other via the internet. These games do not necessarily need to have had online play originally implemented. 
 
-
+\pagebreak
 There are two different ways in which users can communicate with one another to establish a game.
 \vspace{0.5cm}
 \begin{enumerate}  
@@ -499,9 +499,10 @@ We use the \textbf{scapy} Python library.
 A small sample code snippet is provided below:
 \vspace{0.3cm}
 \begin{lstlisting}[language=Python]
-spoofed_packet = IP(src=src_IP, dst=dst_IP) / 
-UDP(sport=src_port, dport=dst_port) / 
-payload
+spoofed_packet = 
+   IP(src=src_IP, dst=dst_IP) / 
+   UDP(sport=src_port, dport=dst_port) / 
+   payload
 send(spoofed_packet)
 \end{lstlisting}
 \vspace{0.3cm}
