@@ -450,7 +450,59 @@ And the equivalent diagram for the traversal server:
 \end{center}
 \vspace{0.3cm}
 \section{Source Code Analysis}
-The source code for the Dolphin emulator is available online on github \cite{github-dolphin}. Because of this, we have the opportunity to view the source code to even further interpret the security vulnerabilities.
+The Dolphin emulator project has been around since 2003.
+The project was made open source in 2008.
+The source code for the Dolphin emulator is available online on github \cite{github-dolphin}.
+Maintenance and additions to the project are a community effort, relying on many coders working on the project as a labor of love.
+As part of our research into the security issues with Netplay and Dolphin in general, in this section we present our finding from analyzing the source code of Dolphin.
+We present an overview of the structure of Netplay, as well as our thoughts on some of the vulnerabilities that are apparent through looking at the source code.
+The Dolphin emulator project consists of upwards of 800,000 lines of code.
+Most of the code is written in C++, and the project is compilable on Windows, Linux, and Mac OS X.
+
+\subsection{ Netplay Structure }
+There are two primary actors in a Netplay session, namely the client and server.
+Each player in the game is represented as a "client" in the session.
+In addition, the "hosting" player also runs a server.
+Data is sent from the clients to the server, who forwards the data to the appropriate clients.
+Some data is sent only from the server, such as the signal to start or stop a game.
+In general, changes are made locally and packets are sent out to notify the other clients in the game.
+For instance, controller input is sent straight to the local emulator, and then other clients are notified.
+In a sense, there is very little syncing through the server.
+When a packet is received by the client or server, the client/server decides where to send the data based on which type of message it is.
+For example: a chat message is simply displayed in the chat window by calling a UI function, and controller input is actually forwarded to the emulator to be input.
+
+\subsection{Data types}
+The following are types of packets that are sent by client or server:
+
+\vspace{0.5cm}
+\begin{enumerate}  
+\item Chat message
+\item Gamecube controller input
+\item Wiimote controller input
+\item Player join/leave
+\item Change game
+\item Start game
+\item Stop game
+\item Ping
+\item Compute MD5 hash of game
+\item Change game settings
+\end{enumerate}
+\vspace{0.5cm}
+
+The MD5 hash is computed to make sure that clients are using the same version of a game, to minimize possible issues with that.
+There is no encryption on any of the data sent.
+
+\subsection{Possible vulnerabilities}
+Through our source code analysis, we found numerous vulnerabilities that require different kinds of exploits. 
+Primarily, there is no encryption or sequence number validation. 
+This makes Netplay a much easier target for network and packet spoofing attacks than if they had used encryption.
+It appears that packets spoofed from one client to the server, or from the server to a client, will be taken in by Netplay, and the data will be used.
+There is little to no verification of the data sent. 
+This lack of encryption also means that chat messages are sent in plantext.
+This presents a security issue because anyone on the network of any of the clients will be able to listen to the traffic and read chat messages in plain text.
+
+
+
 \section{Traffic Monitoring}
 Our first task was to monitor traffic during a game of SSBM via NetPlay. 
 The goal of this is to capture and observe network traffic to analyze security vulnerabilities. 
