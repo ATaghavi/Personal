@@ -676,6 +676,32 @@ This code intercepts chat messages as they are being sent to other clients, and 
 Other than monitoring their own network traffic, the victim will have no way of knowing this is happening.
 This malicious code works as intended.
 \subsection{Phishing}
+One of the vulnerabilities that we found during our source code analysis was that there is no syncing of chat messages through a server.
+When a user sends a chat to the pre-game chatroom, this chat is displayed locally on their UI, and then sent to the server to be relayed to the other clients.
+We found that this presented an opportunity for malicious messages to be sent to some players without the other players even knowing they were sent.
+In particular, we discuss a situation where this type of attack is implemented in the source code of Dolphin as a piggybacking attack.
+The attack works as follows: when a user with the malicious version of Dolphin sends a chat to the chatroom, the source code instead sends a phishing message.
+This phishing message is sent to the other clients in the chatroom.
+However, the user that sent the message will only see their original message in the chatroom, and will not have any knowledge of the phishing message.
+This can be compounded with the previously discussed piggybacking attack to send the replies to the phishing message to a private server owned by the attacker.
+The code snippet containing the malicious code implementing this attack can be found below:
+\vspace{0.5cm}
+\begin{center}
+\includegraphics[width=9cm]{Figures/Phishing1}
+\end{center}
+\vspace{0.5cm}
+
+As you can see, in our implementation the phishing messages are sent on a random interval.
+It is easy to imagine the code implementing other criteria for deciding when to send a phishing message.
+The attack can also be reversed: the user with the malicious version of Dolphin can be the one receiving phishing messages from other players. 
+This code works in a similar manner, but is implemented upon receiving a chat message, rather than sending one.
+The source code that implements this version of the phishing attack can be found below:
+
+\vspace{0.5cm}
+\begin{center}
+\includegraphics[width=9cm]{Figures/Phishing2}
+\end{center}
+\vspace{0.5cm}
 
 \subsection{Other possibilities}
 \subsection{Drawbacks}
