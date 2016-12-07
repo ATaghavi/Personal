@@ -373,29 +373,37 @@ Email: philipvr@gmail.com}
    Online gaming is no longer simply a past-time for the youth; it is not only a large industry, but also a career for many.
    Because of this, online gaming security is becoming more and more important.
    Hacking online games can amount to a serious offense if it is used to skew the results of games played for money.
-   In this report, we explore the security concerns of Super Smash Bros Melee, as played through Netplay.
-   We explore methods of cheating within the game, performing malicious activity, as well as possible security measures to address these problems.
+   In this report, we explore the security concerns of Dolphin, an emulator for various game systems, and Netplay, it's system for playing these games with others online.
+   We do a source code analysis of Dolphin to attempt to detect vulnerabilities.
+   We also explore various forms of exploits, such as network traffic spoofing and source code modification attacks.
+   We also propose various solutions and suggestions for the issues we find.
 \end{abstract}
 
 \section{Introduction}
 Online gaming is as popular as it has ever been, and only continues to grow. 
-With the advent of eSports, we are seeing competitive video gaming turn into a legitimate industry. Video games are played for fun, but they are also played for sport and, in some cases, as a career. This changes security issues and cheating in online gaming from an annoyance to a serious issue. 
+With the advent of eSports, we are seeing competitive video gaming turn into a legitimate industry. 
+Video games are played for fun, but they are also played for sport and, in some cases, as a career. 
+This changes security issues and cheating in online gaming from an annoyance to a serious issue. 
 Cheating in online gaming that results in a change in the outcome of the game can have financial implications and can be a serious crime.
-	
-One such eSport is the Super Smash Bros franchise, from Nintendo.
-This is considered by many to be the first eSport, as the competitive Super Smash Bros scene emerged before the game was playable online.
-While newest installations of Super Smash Bros have online support through Nintendo, older versions do not.
-In particular, we are concerned with Super Smash Bros Melee, which we will refer to as SSBM throughout this report.
-The competitive community for SSBM began with groups of people meeting in person and holding tournaments.
-However, in recent years, ways of playing the game online have emerged.
-Dolphin is a Gamecube emulator for Windows, which provides a system called NetPlay for playing certain Gamecube games online.
-Players can meet in online, on sites such as Anther's Ladder.
-These sites provide a platform for players to meet eachother and coordinate games.
-Tournaments are also organized via websites such as these, and many of these such tournaments are played for prize money. 
-Thus, security implications are very serious for this game.
+In addition, when games are played for social purposes, typical social behavior often accompanies it. 
+People can share sensitive information with their trusted friends when playing games.
 
-We wish to explore the security issues with NetPlay for Dolphin, in particular how they pertain to SSBM. 
-Our analysis will be threefold: (1) Cheating at SSBM through NetPlay for Dolphin, (2) Malicious activity via the connection provided by NetPlay, and (3) possible solutions for the issues we find.
+In this paper, we are primarily interested with security issues in gaming as they pertain specifically to the Dolphin emulator.
+Dolphin is the most popular emulating software, and is used by many to play games online.
+As of 2010, Dolphin provides a service called NetPlay, which allows players to play games online with eachother.
+NetPlay simulates local multiplayer over the internet by sending controller inputs back and forth.
+
+Our goal in this paper is to find vulnerabilities in NetPlay, and show how they can be exploited for malicious purposes.
+One malicious purpose is cheating at the game that is being played.
+This could lead to serious issues, especially when games are played for a prize.
+Other malicious purposes are more traditional, such as stealing user information, or phishing attacks. 
+We primarily look at two avenues for attacks: network traffic spoofing, and piggybacking attacks.
+In the former, the attacker spoofs network traffic to perform their attack.
+In the latter, the attacker modifies the source code for Dolphin and distributes their malicious version of the application.
+
+We also propose various solutions to the vulnerabilities we find.
+Some are small and may make a large difference.
+Others would be larger overhauls to the structure of NetPlay.
 
 
 \section{Related Work}
@@ -703,6 +711,23 @@ The source code that implements this version of the phishing attack can be found
 \end{center}
 \vspace{0.5cm}
 
+\subsection{Cheating}
+Source code modification can actually provide ways for an attacker to cheat at a particular game using Dolphin's NetPlay feature.
+This is a slightly different form of piggybacking, because the attacker's goal is quite different.
+The attacker, in this case, does not want to distribute their repackaged application.
+Instead, they want to make edits to the source code to give themselves an unfair advantage during gameplay.
+
+Because the source code can be modified, a player can make modifications to how the controller input is received to give themselves an unfair advantage.
+For instance, consider the genre of fighting games.
+A large portion of the skill for fighting games is to memorize and be able to successfully execute complex combinations of buttons very quickly.
+This is very difficult to do in some cases.
+However, an attacker can simply program these combinations of buttons to be executed by the emulator at the press of a single button.
+This gives the attacker the unfair advantage of being able to get the effect these complex combinations without having to actually execute the skill.
+
+In addition, cheating could be implemented by changing game settings for one player and not the other.
+For example, an attacker could modify the source code to send out a message to the server to change the pad buffer size to a large size, but ignore this change locally.
+This would have the effect of giving the other players a slight delay in receiving controller input from other clients. 
+
 \subsection{Other possibilities}
 The other possibilities of attacks through source code modification are virtually endless.
 The source code could be modified to simply ruin the integrity of the game and sporadically ignore or add extra controller inputs.
@@ -713,7 +738,9 @@ These attacks are more general and could be performed with any open-source softw
 For this reason, we focused on piggybacking attacks that are unique to Dolphin, and would be harder to detect because they are non-traditional forms of attacks.
 We feel that those attacks we described in more detail are more vulnerabilities of Dolphin rather than inherent issues with downloading software on the internet.
 \subsection{Drawbacks}
-
+The most obvious drawback to this form of attack, from the point of view of the attacker, is that it may be difficult to redistribute their modified version of the app.
+More savvy users will simply download the source code for the project, and compile the binary themselves.
+Thus, a large part of this attack will be the attacker finding ways to distribute their version of the app, and convincing users to download their compromised binaries.
 \section{Solutions and Suggestions}
 
 \section{Conclusion}
