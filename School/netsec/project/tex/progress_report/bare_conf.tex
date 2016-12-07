@@ -397,14 +397,6 @@ Thus, security implications are very serious for this game.
 We wish to explore the security issues with NetPlay for Dolphin, in particular how they pertain to SSBM. 
 Our analysis will be threefold: (1) Cheating at SSBM through NetPlay for Dolphin, (2) Malicious activity via the connection provided by NetPlay, and (3) possible solutions for the issues we find.
 
-\section{Proposed Technique}
-To explore the methods of cheating at SSBM via NetPlay, we will first use a network traffic tool such as Wireshark to capture traffic during an SSBM session. This will allow us to analyze the way that data is sent back and forth to establish the game, and enable us to spoof input from one user to cheat. 
-
-Then, we will conduct experiments to attempt to alter the game and affect the game via a third party. We will use packet spoofing to impersonate one of the players.
-	
-Next, we will try various known methods of attack using the NetPlay connection, such as buffer overflow. We will note the results and how NetPlay can be used to facilitate malicious behavior.
-	
-Finally, we will propose possible solutions to the vulnerabilities that we have found during this project.
 
 \section{Related Work}
 The online PC gaming in the U.S. is a multi-billion dollar industry \cite{takahashi15}. When online gamers encounter cheaters, they may feel that the game is ruined and may give up on playing the game \cite{yan02}. 
@@ -418,6 +410,40 @@ Online gaming is the most successful software industry in Asia and has led to a 
 Steam, a popular online game platform, reported that 77,000 accounts are hijacked and pillaged each month \cite{steam15}. It was later found by \cite{pontiroli16} that malware had been developed to steal Steam user credentials.
 
 By using a time series based user modeling approach in \cite{oh12} compromised accounts can be automatically detected in Massively Multi-player Online Role Playing Games. \cite{chen07} found that idle time distribution is a representative feature of game players.
+
+\section{Research Areas}
+We want to explore vulnerabilities and exploits of these vulnerabilities in Netplay for Dolphin.
+There are many types of security vulnerability, so we will split the research into 4 research areas:
+\vspace{0.5cm}
+\begin{enumerate}  
+\item Eavesdropping
+\item Network traffic spoofing
+\item Piggybacking
+\item Solutions
+\end{enumerate}
+\vspace{0.5cm}
+
+\subsection{Eavesdropping}
+This type of vulnerability refers to the malicious activity that an attacker could perform just by listening to network traffic.
+This mainly amounts to an attacker getting private information about victims by listening to network traffic.
+In general, this type of attack requires the attacker to be on the same network as one or more victims.
+
+\subsection{Network traffic spoofing}
+This type of vulnerability refers to when an attacker "spoofs" network traffic to change the course of a game or chat session.
+One possibility is for an attacker to "spoof" traffic to send controller input from one player to the server, in order to cheat at the game and make a specific player win or lose.
+Another possibility is for an attacker to spoof packets to change the game settings for one player, to give a specific player an unfair advantage.
+Again, this type of vulnerability generally requires the attacker to have access to the network of one of more player.
+
+\subsection{Piggybacking}
+In this context, we are using "piggybacking" to mean an attack in which the attacker modifies the source code of Dolphin to include some kind of malicious code.
+The attacker then distributes their new compiled app, and victims download the attacker's version of Dolphin, thinking that it is a legitimate version of Dolphin.
+The victim is then vulnerable to whatever malicious code the attacker included.
+One example is the attacker distributing a Dolphin binary that sends out personal or sensitive data to their own private server.
+
+\subsection{Solutions}
+We will also discuss and explore possible solutions to the vulnerabilities and exploits that we find.
+While vulnerabilities always exist, we believe that we can provide valuable insight into various ways that security in Dolphin and NetPlay can be improved. 
+We will suggest solutions to vulnerabilities for both the user and for the developers of Dolphin.
 
 \section{NetPlay Overview}
 NetPlay is an online gaming platform that is provided by the Dolphin emulator. It provides a way for players using the emulator to play games against each other via the internet. These games do not necessarily need to have had online play originally implemented. 
@@ -449,6 +475,11 @@ And the equivalent diagram for the traversal server:
 \includegraphics[width=9cm]{Figures/Sequence_Traversal}
 \end{center}
 \vspace{0.3cm}
+
+
+
+\section{ Networking Traffic Spoofing }
+
 \section{Source Code Analysis}
 The Dolphin emulator project has been around since 2003.
 The project was made open source in 2008.
@@ -459,7 +490,7 @@ We present an overview of the structure of Netplay, as well as our thoughts on s
 The Dolphin emulator project consists of upwards of 800,000 lines of code.
 Most of the code is written in C++, and the project is compilable on Windows, Linux, and Mac OS X.
 
-\subsection{ Netplay Structure }
+\subsection{ NetPlay Structure }
 There are two primary actors in a Netplay session, namely the client and server.
 Each player in the game is represented as a "client" in the session.
 In addition, the "hosting" player also runs a server.
@@ -501,9 +532,13 @@ There is little to no verification of the data sent.
 This lack of encryption also means that chat messages are sent in plantext.
 This presents a security issue because anyone on the network of any of the clients will be able to listen to the traffic and read chat messages in plain text.
 
+The lack of syncing provides other opportunities for attackers.
+Primarily, it provides an opportunity for attackers to spoof or fake messages without the "sender" knowing that it was sent.
+For example, an attacker could implement a "piggybacking" attack in which phishing messages are sent without one party even being aware that the messages are sent.
+This would be particularly effective, because one party would believe that their friend or trusted person was sending these messages, while the supposed "sender" is never even aware that the messages are sent.
 
 
-\section{Traffic Monitoring}
+\section{Eavesdropping}
 Our first task was to monitor traffic during a game of SSBM via NetPlay. 
 The goal of this is to capture and observe network traffic to analyze security vulnerabilities. 
 From there we will design and explore possible exploits.
@@ -528,6 +563,15 @@ Some of the initial handshake data is somewhat indecipherable to us.
 However, the pre-game client allows users to "chat" with eachother, and this is easily decipherable. 
 An example of such a packet is provided below:
 \vspace{0.5cm}
+\begin{center}
+\includegraphics[width=4cm]{Figures/Packet2}
+\end{center}
+\vspace{0.5cm}
+
+As the reader can easily see, the chat messages are sent in plaintext.
+This is unsafe, as anyone on the network can listen to the traffic and see what messages are sent.
+Because many players will play games via NetPlay with trusted friends, they may be inclined to share information with them that most would consider sensitive.
+This would be unwise, because this information can easily be seen by anyone on the network.
 
 For the actual game communication, it is our analysis that the games send "controller input" back and forth to establish the game. An example of such a packet is provided below:
 \vspace{0.5cm}
@@ -537,7 +581,10 @@ For the actual game communication, it is our analysis that the games send "contr
 \vspace{0.5cm}
 
 Each of these UDP packets contains data about a single controller input.
-\section{Experiment 1: Third Party Intervention}
+The payload data contains values for each input on the controller: binary values for buttons and real values for the joysticks.
+This data is not of much use to an attacker if they are simply listening to the traffic, as it is hard to consider this information sensitive. 
+
+\section{Network traffic spoofing}
 In this first experiment, we explore a fairly simple exploit of the SSBM game via NetPlay.
 Our goal, in this experiment, is to interfere with the flow of a game via a third party host.
 To achieve this, we use our analysis of the monitored traffic from other games to be able to construct packets that we think will interfere with a game being played by two other hosts. 
